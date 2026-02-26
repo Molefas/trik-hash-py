@@ -1,8 +1,0 @@
-pyproject.toml
-src/trik_hash_py/__init__.py
-src/trik_hash_py/main.py
-src/trik_hash_py.egg-info/PKG-INFO
-src/trik_hash_py.egg-info/SOURCES.txt
-src/trik_hash_py.egg-info/dependency_links.txt
-src/trik_hash_py.egg-info/requires.txt
-src/trik_hash_py.egg-info/top_level.txt
