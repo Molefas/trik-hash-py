@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 2,
+  "id": "trik-hash-py",
+  "name": "Hash Calculator",
+  "description": "Compute and compare cryptographic hashes",
+  "version": "1.0.0",
+  "agent": {
+    "mode": "tool",
+    "domain": ["hashing", "crypto", "utilities"]
+  },
+  "tools": {
+    "computeHash": {
+      "description": "Compute a cryptographic hash of the given text",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": { "type": "string", "maxLength": 10000 },
+          "algorithm": { "type": "string", "enum": ["sha256", "md5", "sha1"] }
+        },
+        "required": ["text", "algorithm"]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "algorithm": { "type": "string", "enum": ["sha256", "md5", "sha1"] },
+          "hash": { "type": "string", "pattern": "^[a-f0-9]+$" }
+        },
+        "required": ["algorithm", "hash"]
+      },
+      "outputTemplate": "{{algorithm}}: {{hash}}"
+    },
+    "compareHash": {
+      "description": "Check if text matches a given hash",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": { "type": "string", "maxLength": 10000 },
+          "hash": { "type": "string", "maxLength": 128 },
+          "algorithm": { "type": "string", "enum": ["sha256", "md5", "sha1"] }
+        },
+        "required": ["text", "hash", "algorithm"]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "match": { "type": "boolean" },
+          "algorithm": { "type": "string", "enum": ["sha256", "md5", "sha1"] }
+        },
+        "required": ["match", "algorithm"]
+      },
+      "outputTemplate": "Hash {{algorithm}} match: {{match}}"
+    }
+  },
+  "entry": {
+    "module": "./src/trik_hash_py/main.py",
+    "export": "default",
+    "runtime": "python"
+  }
+}
