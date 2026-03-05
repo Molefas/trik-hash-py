@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "trik-hash-py"
-version = "1.0.0"
+version = "1.0.1"
 description = "Compute and compare cryptographic hashes"
 requires-python = ">=3.10"
 license = "MIT"
 
 dependencies = [
-    "trikhub-sdk>=0.1.0",
+    "trikhub>=0.17.0",
 ]
 
 [tool.setuptools.packages.find]

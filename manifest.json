@@ -3,10 +3,14 @@
   "id": "trik-hash-py",
   "name": "Hash Calculator",
   "description": "Compute and compare cryptographic hashes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "agent": {
     "mode": "tool",
-    "domain": ["hashing", "crypto", "utilities"]
+    "domain": [
+      "hashing",
+      "crypto",
+      "utilities"
+    ]
   },
   "tools": {
     "computeHash": {
@@ -14,18 +18,44 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "text": { "type": "string", "maxLength": 10000 },
-          "algorithm": { "type": "string", "enum": ["sha256", "md5", "sha1"] }
+          "text": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "algorithm": {
+            "type": "string",
+            "enum": [
+              "sha256",
+              "md5",
+              "sha1"
+            ]
+          }
         },
-        "required": ["text", "algorithm"]
+        "required": [
+          "text",
+          "algorithm"
+        ]
       },
       "outputSchema": {
         "type": "object",
         "properties": {
-          "algorithm": { "type": "string", "enum": ["sha256", "md5", "sha1"] },
-          "hash": { "type": "string", "pattern": "^[a-f0-9]+$" }
+          "algorithm": {
+            "type": "string",
+            "enum": [
+              "sha256",
+              "md5",
+              "sha1"
+            ]
+          },
+          "hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]+$"
+          }
         },
-        "required": ["algorithm", "hash"]
+        "required": [
+          "algorithm",
+          "hash"
+        ]
       },
       "outputTemplate": "{{algorithm}}: {{hash}}"
     },
@@ -34,19 +64,48 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "text": { "type": "string", "maxLength": 10000 },
-          "hash": { "type": "string", "maxLength": 128 },
-          "algorithm": { "type": "string", "enum": ["sha256", "md5", "sha1"] }
+          "text": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "hash": {
+            "type": "string",
+            "maxLength": 128
+          },
+          "algorithm": {
+            "type": "string",
+            "enum": [
+              "sha256",
+              "md5",
+              "sha1"
+            ]
+          }
         },
-        "required": ["text", "hash", "algorithm"]
+        "required": [
+          "text",
+          "hash",
+          "algorithm"
+        ]
       },
       "outputSchema": {
         "type": "object",
         "properties": {
-          "match": { "type": "boolean" },
-          "algorithm": { "type": "string", "enum": ["sha256", "md5", "sha1"] }
+          "match": {
+            "type": "boolean"
+          },
+          "algorithm": {
+            "type": "string",
+            "enum": [
+              "sha256",
+              "md5",
+              "sha1"
+            ]
+          }
         },
-        "required": ["match", "algorithm"]
+        "required": [
+          "match",
+          "algorithm"
+        ]
       },
       "outputTemplate": "Hash {{algorithm}} match: {{match}}"
     }
