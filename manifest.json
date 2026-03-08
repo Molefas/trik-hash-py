@@ -2,8 +2,8 @@
   "schemaVersion": 2,
   "id": "trik-hash-py",
   "name": "Hash Calculator",
-  "description": "Compute and compare cryptographic hashes",
-  "version": "1.0.1",
+  "description": "A demo Trik to Compute and compare cryptographic hashes - Python version",
+  "version": "1.0.2",
   "agent": {
     "mode": "tool",
     "domain": [
